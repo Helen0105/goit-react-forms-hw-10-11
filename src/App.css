@@ -182,3 +182,13 @@
     border-right-color: var(--border);
   }
 }
+
+
+input{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+button{
+  margin-left: 20px;
+}
