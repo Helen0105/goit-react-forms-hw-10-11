@@ -11,6 +11,21 @@ class App extends Component {
     filter: "",
   };
 
+  componentDidMount() {
+    console.log("Викликався >>> componentDidMount");
+    const savedContacts = localStorage.getItem('contacts');
+    if(savedContacts) {
+      this.setState({contacts: JSON.parse(savedContacts)})
+    }
+  }
+
+componentDidUpdate(_, prevState) {
+  console.log("Викликався >>> componentDidUpdate");
+  if(prevState.contacts !== this.state.contacts) {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+  }
+}
+
   formSubmitHandler = (data) => {
     const { contacts } = this.state;
     
